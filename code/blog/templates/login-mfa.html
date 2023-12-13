@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Two Factor Authentication</h1>
+<div class="card shadow-lg m-3 p-3">
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        <p>{{ form.otp.label(class_="form-label") }} {{ form.otp(class_="form-control") }}</p>
+        {% for error in form.otp.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <input type="submit" value="Login" class="btn btn-primary">
+    </form>
+</div>
+{% endblock content %}

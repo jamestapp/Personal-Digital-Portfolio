@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Two Factor Authentication Setup</h1>
+<div class="card shadow-lg m-3 p-3">
+    <p>Please download the Google Authenticator application on your mobile device for free and scan the QR code below to set up two factor authentication on your account.</p> 
+    <img src="{{ qrcode(uri) }}" style="max-height:50vh; width:auto; object-fit:scale-down;">
+</div>
+<div class="card shadow-lg m-3 p-3">
+    <p>Once you are done, please click below to return to the user dashboard.</p>
+    <form class="mx-auto mt-3 mb-3">
+        <button type="submit" class="btn btn-primary" formaction="{{ url_for('user_dashboard') }}">I confirm I have successfully set up two factor authentication</button>
+    </form>       
+</div>
+{% endblock content %}    

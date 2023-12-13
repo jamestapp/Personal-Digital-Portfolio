@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Qualifications</h1>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <p>Please take a look at my qualifications. You can click on any that you are particularly interested in to take a closer look.</p>
+    <p>If anything seems to be missing or you have any questions, let me know via the comments!</p>    
+</div>
+<div>
+    <ul class="list-group">
+        {% for qual in qualifications %}
+            <li class="list-group-item list-group-item-dark">
+                <b><a href="#qual{{qual.id}}" data-bs-toggle="collapse" class="collapsed text-color-black text-decoration-none text-dark">{{ qual.qualification }}</a></b>
+                <div id="qual{{qual.id}}" class="collapse">
+                    {% if qual.grade %}
+                        <p>Grade: {{ qual.grade }}</p>
+                    {% endif %}
+                    <p>Year Obtained: {{ qual.year_obtained }}</p>
+                    <p>Institution: {{ qual.institution }}</p>
+                    {% if qual.content %}
+                        <p>{{ qual.content }}</p>
+                    {% endif %}
+                </div>            
+            </li>
+        {% endfor %}    
+    </ul>
+</div>
+{% include 'rating.html' %}
+{% include 'commentlist.html' %}
+{% include 'commentsAndRating.html' %}
+{% endblock content %}

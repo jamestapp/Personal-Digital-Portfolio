@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Hobbies</h1>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <p>Please have a look at some of the things I do when I'm not at my computer. If anything suprises you, or you have questions let me know via the comments!</p>
+</div>
+<ul class="list-group">
+    {% for hobby in hobby_list %}
+        <li class="list-group-item list-group-item-dark m-3 p-3">
+            <div class="card shadow-lg m-3 p-3 text-center">
+                <h4>{{ hobby.hobby }}</h4>
+                <p>{{ hobby.content }}</p>
+                {% if hobby.image_file %}
+                    {% set img_scr = "static/img/" + hobby.image_file %}
+                    <figure class="figure">
+                        <img src="{{ img_scr }}" alt="Image of {{ hobby.hobby }}" class="rounded img-fluid" style="max-height:50vh; width:auto; object-fit:scale-down;">
+                        <figcaption class="figure-caption">
+                            <h6>{{ hobby.image_attribution }}</h6>
+                            <h6>Licence: {{ hobby.image_license }}</h6>
+                        </figcaption>
+                    </figure>
+                    
+                {% endif %}
+            </div>   
+        </li>
+    {% endfor %}
+</ul>
+{% include 'rating.html' %}
+{% include 'commentlist.html' %}
+{% include 'commentsAndRating.html' %}
+{% endblock content %}

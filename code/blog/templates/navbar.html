@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('qualifications') }}">Qualifications</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('work_list') }}">Work</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('project_list') }}">Projects</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('skill_list') }}">Skills</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('hobbies') }}">Hobbies</a>
+      </li>
+
+      {% if current_user.admin %}
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Admin</a>
+        <ul class="dropdown-menu bg-dark">
+          <li><a class="dropdown-item nav-link" href="{{ url_for('user.index_view') }}">User</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('qualifications.index_view') }}">Qualifications</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('work.index_view') }}">Work</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('hobbies.index_view') }}">Hobbies</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('projects.index_view') }}">Projects</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('skills.index_view') }}">Skills</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('skillstoprojects.index_view') }}">Skills To Projects</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('comments.index_view') }}">Comments</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('ratings.index_view') }}">Ratings</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('images.images') }}">Images</a></li>
+        </ul>
+      </li>
+
+      {% endif %}
+
+      {% if current_user.is_authenticated %}
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{current_user.username}}</a>
+        <ul class="dropdown-menu bg-dark">
+          <li><a class="dropdown-item nav-link" href="{{ url_for('user_dashboard') }}">My Dashboard</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('update_details') }}">Update Details</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('change_password') }}">Change Password</a></li>
+          <li><a class="dropdown-item nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </li>
+
+      {% else %}
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+      </li>
+      {% endif %}
+    </ul> 
+    <!-- W3 Schools. 2023. https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
+</nav>

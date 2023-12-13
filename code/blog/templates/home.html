@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="bg-image" style="background-image: url(static/img/homepage_header.jpg); height:50vh">
+    <h1 class="display-1 text-white text-center"><b>My Online Digital Portfolio</b></h1>
+    <h3 class="display-5 text-white text-center">An online CV created for CMT120 with Python Flask Microframework</h3>
+</div>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <h3 class="m-3">This is a portfolio of my qualifications, work experience, individual projects and skills. Please explore the site and look at what I have to offer.</h3>
+    {% if not current_user.is_authenticated %}
+        <form class="mx-auto mt-3 mb-3">
+            <button type="submit" class="btn btn-primary" formaction="{{ url_for('register') }}">Create an account to rate and comment here!</button>
+        </form>
+    {% endif %}
+    <p>Some of the key features include responsive design, login and access management and dynamic website content. There are also various integration with flask-login, flask-admin, and flask-security amoung others to handle different features of the site.</p>
+    <p>If you are enjoying looking around please create an account and leave me a comment on what you liked, or suggestions for the site. If you are particularly enjoying the site and would like to see even more, details for an admin account can be found in the readme file.</p> 
+</div>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <h6>Homepage Image License Available At:<a href="https://creativecommons.org/publicdomain/zero/1.0/">https://creativecommons.org/publicdomain/zero/1.0/</a></h6>
+    <h6>Original Image Available At: <a href="https://www.rawpixel.com/image/3322326/free-photo-image-technology-electronics-data">https://www.rawpixel.com/image/3322326/free-photo-image-technology-electronics-data</a></h6>
+</div>
+    {% endblock content %}

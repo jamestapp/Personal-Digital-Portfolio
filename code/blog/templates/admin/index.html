@@ -1,0 +1,11 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+    <h1>Flask Admin</h1>
+    <h4>Welcome {{ current_user.name }}</h4>
+    <p>As a verified admin, you can use these pages to add values to the database and update my digital portfolio.</p>
+    <p>Click the link below to return to the main site.</p>
+    <form class="mx-auto mt-3 mb-3">
+        <button type="submit" class="btn btn-primary" formaction="{{ url_for('home') }}">Homepage</button>
+    </form>  
+{% endblock %}

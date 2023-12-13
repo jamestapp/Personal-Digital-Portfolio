@@ -1,0 +1,28 @@
+<div class="mb-5">
+    <div class="card shadow-lg m-3 p-3">
+        <form method="POST" action="" id="commentForm">
+            {{ commentForm.csrf_token }}
+            <p>{{ commentForm.comment.label(class_="form-label") }} {{ commentForm.comment(class_="form-control") }}</p>
+            <input type="submit" value="Submit" class="btn btn-primary" form="commentForm">
+        </form>
+        <form method="POST" action="" id="ratingForm">
+            {{ ratingForm.csrf_token }}
+            <p>{{ ratingForm.rating.label(class_="form-label") }}</p>        
+            <span class="d-flex">
+                <p class="me-2"><b>Value:</b></p>
+                <p id="range-output" class="text-info"></p>
+            </span> 
+            <p>{{ ratingForm.rating(class_="form-range", max=10, min=1) }}</p>
+
+            <script>
+                const slider = document.getElementById("rating")
+                const output = document.getElementById("range-output")
+                output.innerHTML = slider.value
+                slider.oninput = function(){
+                    output.innerHTML = this.value
+                }
+            </script>
+            <input type="submit" value="Submit" class="btn btn-primary" form="ratingForm">
+        </form>
+    </div>
+</div>

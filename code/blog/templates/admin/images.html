@@ -1,0 +1,20 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+  <h4>Use this page to upload and delete images.</h4>
+  <form method="POST" action="" enctype="multipart/form-data">
+    {{ upload_form.csrf_token }}
+    <p>{{ upload_form.pic.label }} {{ upload_form.pic }}</p>
+    {% for error in upload_form.pic.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>
+<form method="POST" action="">
+  {{ delete_form.csrf_token }}
+  <p>{{ delete_form.delete_file.label }} {{ delete_form.delete_file }}</p>
+  {% for error in delete_form.delete_file.errors %}
+  <span style="color: red;">[{{ error }}]</span>
+  {% endfor %}
+  <input type="submit" value="Submit" class="btn btn-primary">
+</form>
+{% endblock %}

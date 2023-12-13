@@ -1,0 +1,9 @@
+<h3>Rating:</h3>
+<div class="card shadow-lg m-3 p-3 text-center">
+    {% if rating %}        
+        <p>This page is currently rated {{ rating }} out of 10.</p>
+        <p>Please help me improve by leaving a rating if you haven't done so already.</p>
+    {% else %}
+        <p>This page is currently unrated. Be the first to submit a rating by completing the form below!</p>
+    {% endif %}
+</div>

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Projects</h1>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <h3><b>Project Title:</b>  {{ project.title }}</h3>
+    <p><b>Repository Link:</b> <a href="{{ project.repo_link }}">{{ project.repo_link}}</a></p>
+</div>
+<div class="card shadow-lg m-3 p-3">
+    <p>{{ project.content }}</p>
+</div>
+{% if skills %}
+    <div class="card shadow-lg m-3 p-3">
+        <p>I used the following skills in this project</p>
+        <ul class="list-group">
+            {% for skill in skills %}
+                <li class="list-group-item list-group-item-dark">
+                    <p>{{ skill.skill }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>View the full list of my skills by clicking the button below:</p>
+        <form class="mx-auto mt-3 mb-3">
+            <button type="submit" class="btn btn-primary" formaction="{{ url_for('skill_list') }}">View</button>
+        </form>        
+    </div> 
+{% endif %}
+{% include 'rating.html' %}
+{% include 'commentlist.html' %}
+{% include 'commentsAndRating.html' %}
+{% endblock content %}    

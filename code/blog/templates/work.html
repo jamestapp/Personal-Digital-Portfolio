@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Employment</h1>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <h3><b>Job Title:</b>  {{ work.job_title }}</h3>
+    <h3><b>Company:</b>   {{ work.company }}</h3>
+    <p><em><b>Start Date:</b>   {{ work.start_date }}</em></p>
+    <p><em><b>End Date:</b>   {{ work.end_date }}</em></p>
+</div>
+<div class="card shadow-lg m-3 p-3">
+    <p>{{ work.content }}</p>
+</div>
+{% include 'rating.html' %}
+{% include 'commentlist.html' %}
+{% include 'commentsAndRating.html' %}
+{% endblock content %}

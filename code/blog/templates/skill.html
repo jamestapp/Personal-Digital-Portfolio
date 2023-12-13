@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Skills</h1>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <p>Please take a look at my skills in technology and computing. Click the view button to see any projects that demonstrate these skills.</p>
+    <p>If you have questions about my proficiency in any of these skills, please let me know via the comments!</p>    
+</div>
+<div class="card shadow-lg m-3 p-3">
+    <ul class="list-group">
+        {% for skill in skills %}
+            <li class="list-group-item list-group-item-dark">
+               <h4>{{ skill.skill }}</h4>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% include 'rating.html' %}
+{% include 'commentlist.html' %}
+{% include 'commentsAndRating.html' %}
+{% endblock content %}

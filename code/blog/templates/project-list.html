@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Projects</h1>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <p>Please take a look at some of the technical projects I have worked on in order to build my skills.</p> 
+    <p>If anything catches your interest please take a closer look, and let me know if you have any questions via the comments section. </p>
+</div>
+<div>
+    <ul class="list-group">
+        {% for proj in projects %}
+            <li class="list-group-item list-group-item-dark">
+                <p><b>Title:</b>  {{ proj.title }}</p>
+                <form class="mx-auto mt-3 mb-3">
+                    <button type="submit" class="btn btn-primary" formaction="{{ url_for('project', project_id=proj.id) }}">View</button>
+                </form>            
+            </li>
+        {% endfor %}        
+    </ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Work</h1>
+<div class="card shadow-lg m-3 p-3 text-center">
+    <p>Please take a look through my previous work experience. If you are interested in any particular record click on the link to take a closer look.</p>
+    <p>Otherwise let me know if you're impressed in the comments!</p>
+</div>
+<div>
+    <ul class="list-group">
+        {% for work in works %}
+            <li class="list-group-item list-group-item-dark">
+                <p><b>Title:  {{ work.job_title }}</b></p>
+                <p>Company:  {{ work.company }}</p>
+                <form class="mx-auto mt-3 mb-3">
+                    <button type="submit" class="btn btn-primary" formaction="{{ url_for('work', work_id=work.id) }}">View</button>
+                </form>
+            </li>
+        {% endfor %}    
+    </ul>
+</div>
+{% endblock content %}

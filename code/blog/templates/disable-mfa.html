@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Disbale Two Factor Authentication</h1>
+<div class="card shadow-lg m-3 p-3">
+    <p>To remove 2 factor authentication from your account please confirm your password below.</p> 
+</div>
+<div class="card shadow-lg m-3 p-3">
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        <p>{{ form.password.label(class_="form-label") }} {{ form.password(class_="form-control") }}</p>
+        {% for error in form.password.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <input type="submit" value="Confirm" class="btn btn-primary">
+</div>
+{% endblock content %}    
